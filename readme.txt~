@@ -1,0 +1,99 @@
+=== :: Interactive Mesh Subdivision ::  ===
+
+=== Installation ===
+
+On your linux machine, one needs to install free-glut libraries. To do the same, at terminal punch in
+
+$apt-get install freeglut3-dev
+
+=== List of files ===
+
+loop_main.cpp
+Utility.cpp
+Utility.h
+WingedEdge.cpp
+frag.sh
+vertex.sh
+Makefile
+
+=== How to run ===
+
+1. Open your termial. 
+2. Move into the src directory.
+3. Type: make
+
+:~/MT2013152_Assignemnt5/src$ make
+
+4. Type: ./output to fire up the window
+:~/MT2013152_Assignemnt5/src$ ./output <ply-file name>
+
+
+5. We have following features:
+
+--Scaling--
+
+Scaling is done using following keys   -
+
+i – to scale up the scene
+o – to  scale down the scene
+
+--Translation--
+
+Translation is done using following keys   -
+
+w – to translate upward
+s  – to translate to translate downward
+a – to translate to left side
+d – to translate to ride side 
+
+--Rotation--
+
+Hover your mouse curser, on the window opened. 
+Click and hold right-button on your mouse and drag the mouse around, you will be able to see the rotation of the mesh.
+
+6. Punch '+' to subdivide the mesh.
+
+7. Hit 'e' to view the control mesh. On the control mesh hit 'n' to select the vertex to move around. Vertex is hightlighed by a filled square around.
+NOTE: Translation, scaling and zooming will be disabled in the 'e' aka., edit mode. 
+
+7. On a selected vertex by hitting 'n', we can move the vertex using 
+
+'w' to move upwards
+'s' to move downwards
+'d' to move right
+'a' to move left.
+
+NOTE: We can see the subdivision mesh autoUpdating.
+
+== Implementation Issues ==
+
+Major challenge faced to keep track of the neighbouring faces, computing valence of a vertex. 
+Another hurdle in the process was updating the old vertex values and adding new vertices and creation of new faces using both. 
+This issues were taken care by choosing the right datastructure.
+The data structure used here is a modified Winged Edge.  
+
+This implementation does not handle the case when topology has holes. 
+[scissors.ply in src folder has multiple holes, the code crashes on subdivision, b'cos boundary edges have only one face, other side is unbounded,
+in our implementation we are assuming that all edge has strictly two faces]
+
+In the given topology ( ellel.ply and dodecadedron.ply ) beyound 3-subdivision level could not perceive a significant improvement in smoothness of the rendered surface.
+
+== Performane Issues ==
+
+Responsiveness in the process of editing the control mesh vertices is very satisfactory. 
+Impact of moving a vertex around can be immediately seen. Due to this, user experience has been excellent.
+Beyound 3-level of subdivision, response to moving a vertex in the control mesh is a bit relatively slow. 
+(since no: of vertices, edges, faces explodes exponentially after each subdivision) 
+
+Program would go slow on large data sets. Use to hash tables would be necessary to bring down the search time.
+
+=== ScreenShots ===
+
+ScreenShots are avaliable in the screenshots folder.
+
+=== References/help ===
+
+1. Interactive Computer Graphics - A Top-Down Approach Using OpenGL by Edward Angel
+2. www.stackoverflow.com
+3. www.opengl.org
+4. Tutorials of openGL on www.youtube.com
