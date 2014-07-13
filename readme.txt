@@ -1,5 +1,7 @@
 === :: Interactive Mesh Subdivision ::  ===
 
+Youtube link: http://youtu.be/nHePQI5oMqs
+
 === Installation ===
 
 Install free-glut libraries. To do the same, at terminal punch in
