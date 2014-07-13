@@ -1,6 +1,12 @@
-=== :: Interactive Mesh Subdivision ::  ===
+===  Interactive Mesh Subdivision  ===
 
-Youtube link: http://youtu.be/nHePQI5oMqs
+The process starts with a given polygonal mesh. A refinement scheme is then applied to this mesh. 
+This process takes that mesh and subdivides it, creating new vertices and new faces. 
+The positions of the new vertices in the mesh are computed based on the positions of nearby old vertices.
+
+=== Youtube link ===
+
+http://youtu.be/nHePQI5oMqs
 
 === Installation ===
 
